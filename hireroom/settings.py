@@ -50,19 +50,23 @@ ALLOWED_HOSTS = []
 # Application definition
 
 BASE_APPS = [
+    "daphne",
+    "channels",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
 ]
 USER_APPS = [
     'accounts',
+    'chatapp',
 ]
 
 THIRD_PARTY_APPS = [
-    "import_export"
+    "import_export",
 ]
 
 INSTALLED_APPS = BASE_APPS + USER_APPS + THIRD_PARTY_APPS
@@ -96,9 +100,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hireroom.wsgi.application'
+# WSGI_APPLICATION = 'hireroom.wsgi.application'
 
-
+ASGI_APPLICATION = "hireroom.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -156,6 +160,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
